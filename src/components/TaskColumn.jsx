@@ -4,7 +4,7 @@ function TaskColumn( { status, tasks } ) {
         <div className='task-column'>
             <h1>{status}</h1>
             {tasks.length > 0 ? (
-                tasks.map((task) => <Task key={task.id} task={task} />)
+                tasks.map((task) => { return <Task key={task.id} task={task} />; })
             ) : (
                 <div></div>
             )}

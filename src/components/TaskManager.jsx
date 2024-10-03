@@ -14,11 +14,9 @@ function TaskManager() {
     return (
         <div className='task-manager'>
             <h1>Gestor de tareas</h1>
-            <TaskColumn status="Backlog" tasks={state.tasks.filter(task => task.status === 'Backlog')} />
-            <TaskColumn status="To do" tasks={state.tasks.filter(task => task.status === 'To Do')} />
-            <TaskColumn status="In Progress" tasks={state.tasks.filter(task => task.status === 'In Progress')} />
-            <TaskColumn status="Done" tasks={state.tasks.filter(task => task.status === 'Done')} />
-            <TaskColumn status="Blocked" tasks={state.tasks.filter(task => task.status === 'Blocked')} />
+            {state.statusArray.map((status) => {
+                return <TaskColumn key={status} status={status} tasks={state.tasks.filter(task => task.status === status)} />;
+            })}
         </div>
     );
 }

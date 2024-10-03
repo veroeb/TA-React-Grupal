@@ -1,5 +1,6 @@
 const initialState = {
-    tasks: []
+    tasks: [],
+    statusArray: ['Backlog', 'To Do', 'In Progress', 'Blocked', 'Done']
 };
 
 const actionsTypes = {
