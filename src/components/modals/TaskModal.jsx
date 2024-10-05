@@ -12,6 +12,18 @@ function TaskModal({ state, dispatch }) {
     const [endDate, setEndDate] = useState(state.taskToUpdate ? state.taskToUpdate.endDate : '');
     const [id, setId] = useState(state.taskToUpdate ? state.taskToUpdate.id : '');
 
+    const formatDateFromApi = (date) => {
+        if (!date) return '';
+        const dateArray = date.split('/');
+        return `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}`;
+    };
+
+    const formatDateForApi = (date) => {
+        if (!date) return '';
+        const dateArray = date.split('-');
+        return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+    };
+
     const handleSubmit = () => {
         const task = {
             title,
@@ -84,7 +96,7 @@ function TaskModal({ state, dispatch }) {
                     </Form.Group>
                     <Form.Group controlId="formEndDate">
                         <Form.Label>Fecha de finalización</Form.Label>
-                        <Form.Control type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+                        <Form.Control type="date" value={formatDateFromApi(endDate)} onChange={(e) => setEndDate(formatDateForApi(e.target.value))} />
                     </Form.Group>
                 </Form>
             </Modal.Body>
