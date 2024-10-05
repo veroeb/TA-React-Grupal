@@ -1,13 +1,17 @@
 const initialState = {
     tasks: [],
-    statusArray: ['Backlog', 'To Do', 'In Progress', 'Blocked', 'Done']
+    statusArray: ['Backlog', 'To Do', 'In Progress', 'Blocked', 'Done'],
+    showTaskModal: false,
+    taskToUpdate: null
 };
 
 const actionsTypes = {
     SET_TASKS: 'SET_TASKS',
     ADD_TASK: 'ADD_TASK',
     UPDATE_TASK: 'UPDATE_TASK',
-    DELETE_TASK: 'DELETE_TASK'
+    DELETE_TASK: 'DELETE_TASK',
+    UPDATE_SHOW_TASK_MODAL: 'UPDATE_SHOW_TASK_MODAL',
+    SET_TASK_TO_UPDATE: 'SET_TASK_TO_UPDATE'
 };
 
 const reducer = (state, action) => {
@@ -31,6 +35,16 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 tasks: state.tasks.filter(task => task.id !== action.payload.id)
+            };
+        case actionsTypes.UPDATE_SHOW_TASK_MODAL:
+            return {
+                ...state,
+                showTaskModal: action.payload
+            };
+        case actionsTypes.SET_TASK_TO_UPDATE:
+            return {
+                ...state,
+                taskToUpdate: action.payload
             };
         default:
             return state;
