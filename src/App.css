@@ -1,0 +1,20 @@
+.priority-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    margin-right: 5px;
+}
+
+.priority-icon.low {
+    background-color: rgb(32, 189, 53);
+}
+
+.priority-icon.medium {
+    background-color: rgb(230, 126, 34);
+}
+
+.priority-icon.high {
+    background-color: rgb(192, 57, 43);
+}
