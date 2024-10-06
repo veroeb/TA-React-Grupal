@@ -2,7 +2,8 @@ const initialState = {
     tasks: [],
     statusArray: ['Backlog', 'To Do', 'In Progress', 'Blocked', 'Done'],
     showTaskModal: false,
-    taskToUpdate: null
+    taskToUpdate: null,
+    theme: 'light'
 };
 
 const actionsTypes = {
@@ -11,7 +12,8 @@ const actionsTypes = {
     UPDATE_TASK: 'UPDATE_TASK',
     DELETE_TASK: 'DELETE_TASK',
     UPDATE_SHOW_TASK_MODAL: 'UPDATE_SHOW_TASK_MODAL',
-    SET_TASK_TO_UPDATE: 'SET_TASK_TO_UPDATE'
+    SET_TASK_TO_UPDATE: 'SET_TASK_TO_UPDATE',
+    SET_THEME: 'SET_THEME'
 };
 
 const reducer = (state, action) => {
@@ -45,6 +47,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 taskToUpdate: action.payload
+            };
+        case actionsTypes.SET_THEME:
+            return {
+                ...state,
+                theme: action.payload
             };
         default:
             return state;

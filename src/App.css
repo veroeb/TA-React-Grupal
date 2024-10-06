@@ -18,3 +18,49 @@
 .priority-icon.high {
     background-color: rgb(192, 57, 43);
 }
+
+.dark-theme {
+    background-color: black;
+    color: white;
+}
+
+.light-theme {
+    background-color: white;
+    color: black;
+}
+
+.task-manager {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-manager .task-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.task-manager .task-column h1 {
+    margin-bottom: 10px;
+}
+
+.task-manager .task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.task-manager .task p {
+    margin: 10px;
+}
+
+.task-manager .task .priority-icon {
+    margin-right: 10px;
+}
+
