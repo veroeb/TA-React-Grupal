@@ -9,6 +9,7 @@ function TaskColumn( { status, tasks, dispatch } ) {
                     <div
                         ref={provided.innerRef}
                         {...provided.droppableProps}
+                        className="droppable-container"
                     >
                         {provided.placeholder}
                         {tasks.length > 0 ? (

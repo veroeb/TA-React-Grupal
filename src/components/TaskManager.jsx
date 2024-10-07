@@ -26,21 +26,25 @@ function TaskManager({ state, dispatch }) {
 
     return (
         <div className={`task-manager ${state.theme}-theme`}>
-            <h1>Gestor de tareas</h1>
-            <Button onClick={handleShowTaskModal}>
-                Crear tarea
-            </Button>
-            <ToggleThemeButton theme={state.theme} dispatch={dispatch} />
-            <DragDropContext onDragEnd={handleOnDragEnd}>
-                {state.statusArray.map((status) => {
-                    return <TaskColumn 
-                        key={status} 
-                        status={status}
-                        tasks={state.tasks.filter(task => task.status === status)} 
-                        dispatch={dispatch}
-                    />;
-                })}
-            </DragDropContext>
+            <h1 className='task-manager-title'>Gestor de tareas</h1>
+            <div className='task-manager-buttons'>
+                <Button onClick={handleShowTaskModal}>
+                    Crear tarea
+                </Button>
+                <ToggleThemeButton theme={state.theme} dispatch={dispatch} />
+            </div>
+            <div className='task-container'>
+                <DragDropContext onDragEnd={handleOnDragEnd}>
+                    {state.statusArray.map((status) => {
+                        return <TaskColumn 
+                            key={status} 
+                            status={status}
+                            tasks={state.tasks.filter(task => task.status === status)} 
+                            dispatch={dispatch}
+                        />;
+                    })}
+                </DragDropContext>
+            </div>
         </div>
     );
 }
