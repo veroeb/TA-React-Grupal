@@ -31,6 +31,7 @@ function TaskManager({ state, dispatch }) {
                 Crear tarea
             </Button>
             <ToggleThemeButton theme={state.theme} dispatch={dispatch} />
+            <div className='task-container'>
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 {state.statusArray.map((status) => {
                     return <TaskColumn 
@@ -41,6 +42,7 @@ function TaskManager({ state, dispatch }) {
                     />;
                 })}
             </DragDropContext>
+            </div>
         </div>
     );
 }
